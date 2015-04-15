@@ -1,0 +1,65 @@
+// *** domain decls ***
+
+oldExplanations={MOVE,STAY,NEWVIEW,DISAPPEAR,PERSIST}
+newExplanations={MOVE,STAY,NEWVIEW,APPEAR}
+similarity={VERY,MODERATE,LOW}
+
+// *** predicate decls ***
+
+looksSimilar(oldCluster, newCluster, similarity!)
+samePos(oldCluster, newCluster)
+
+outOfView(oldCluster) 
+
+explainOld(oldCluster, oldExplanations!)
+explainNew(newCluster, newExplanations!)
+
+is(oldCluster, newCluster)
+
+// *** RULES ***
+
+is(a,c) ^ is(b,c) => (a=b).
+is(c,a) ^ is(c,b) => (a=b).
+
+// prior: if nothing contradicts, objects stay where they are
+5 explainOld(o,STAY)
+5 explainNew(n,STAY)
+
+// object stayed where it was
+5 (looksSimilar(o,n,VERY) ^ samePos(o,n)) <=> (is(o,n) ^ explainOld(o,STAY) ^ explainNew(n,STAY))
+2 (looksSimilar(o,n,MODERATE) ^ samePos(o,n)) <=> (is(o,n) ^ explainOld(o,STAY) ^ explainNew(n,STAY))
+5 (looksSimilar(o,n,LOW) ^ samePos(o,n)) <=> (is(o,n) ^ explainOld(o,NEWVIEW) ^ explainNew(n,NEWVIEW) v (!is(o,n) ^ explainOld(o,MOVE) ^ explainNew(n,MOVE)))
+
+// object moved to new position
+5 (looksSimilar(o,n,VERY) ^ !samePos(o,n)) <=> (is(o,n) ^ explainOld(o,MOVE) ^ explainNew(n,MOVE))
+
+// object looks different (new view) or got replaced
+5 (looksSimilar(o,n,LOW) ^ (samePos(o,n)) <=> ((is(o,n) ^ explainOld(o,NEWVIEW) ^ explainNew(n,NEWVIEW)) v (!is(o,n) ^ (explainOld(o,MOVE) v explainOld(o,DISAPPEAR)) ^ (explainNew(n,MOVE) v explainNew(n,APPEAR))))
+// objects are simply different
+5 (looksSimilar(o,n,LOW):q ^ !samePos(o,n)) => !is(o,n)
+
+// for old clusters, either we can say "is(o,n)", or it persists or disappeared.
+(EXIST n (is(o,n))) v explainOld(o,PERSIST) v explainOld(o,DISAPPEAR).
+// for new clusters, either we can say "is(o,n)", or it appeared.
+(EXIST o (is(o,n))) v explainNew(n,APPEAR).
+
+// if o is out of view, and it seems to be nothing that is in view, it either persists or disappeared
+(outOfView(o) ^ !(EXIST n (is(o,n)))) => (explainOld(o,PERSIST) v explainOld(o,DISAPPEAR)).
+// ... but we rather assume it persists.
+5 explainOld(o,PERSIST)
+// ... and only stuff where we don't look can persist:
+explainOld(o,PERSIST) => outOfView(o).
+
+
+
+
+
+
+
+
+
+
+
+
+
+

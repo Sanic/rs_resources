@@ -1,0 +1,13 @@
+%YAML:1.0
+classnames:
+   []
+descriptors: !!opencv-matrix
+   rows: 0
+   cols: 16
+   dt: f
+   data: []
+responses: !!opencv-matrix
+   rows: 0
+   cols: 1
+   dt: i
+   data: []

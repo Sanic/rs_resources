@@ -1,0 +1,34 @@
+// predicate declarations
+shape(cluster, shape)
+color(cluster, color)
+size(cluster, size)
+instance(cluster, instance)
+
+object(cluster, object!)
+
+// formulas
+
+0 shape(?c, +?s) ^ color(?c, +?col) ^ object(?c, +?obj) 
+0 instance(?c ,+?i) ^ object(?c, +?obj)
+0 size(?c, +?i) ^ object(?c, +?obj)
+
+
+// #unique{+?t1,+?t2}
+// 0 object(?c1, +?t1) ^ object(?c2, +?t2) ^ ?c1 =/= ?c2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+shape(c2,box)
+size(c2,large)
+color(c2,black)
+instance(c2,Spatula)
+
+shape(c0,box)
+size(c0,large)
+shape(c0,flat)
+color(c0,black)
+instance(c0,Pancake_maker)
+
+shape(c1,round)
+size(c1,medium)
+color(c1,yellow)
+

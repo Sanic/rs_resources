@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<PlaneModel type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>1</cols>
+  <dt>f</dt>
+  <data>
+    2.76103914e-02 5.37507474e-01 8.42806756e-01 -7.61786938e-01</data></PlaneModel>
+</opencv_storage>
