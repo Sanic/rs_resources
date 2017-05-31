@@ -1,3 +1,3 @@
 [submodule "objects_dataset"]
 	path = objects_dataset
-	url = https://github.com/bbferka/object_dataset.git
+	url = https://github.com/bbferka/odu_iai.git
