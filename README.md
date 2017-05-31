@@ -4,7 +4,7 @@ Holds resource files needed by RoboSherlock compontents, e.g. trained classifier
 For caffe models, use the 'download_model_binary.py' script that ships with caffe to download the model:
   
 ```
-roscd rs_kbreasoning
+roscd rs_resources
 [path to caffe]/scripts/download_model_binary.py ./caffe/models/bvlc_reference_caffenet
 ```
 
