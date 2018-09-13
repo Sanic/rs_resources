@@ -1,0 +1,14 @@
+CupEcoOrange:1
+RedMetalPlateWhiteSpeckles:2
+BluePlasticFork:3
+BluePlasticKnife:4
+RedPlasticKnife:5
+BlueMetalPlateWhiteSpeckles:6
+SiggBottle:7
+ElBrygCoffee:8
+KelloggsCornFlakes:9
+ReineButterMilch:10
+PfannerPfirsichIcetea:11
+VollMilch:12
+SojaMilch:13
+MeerSalz:14
