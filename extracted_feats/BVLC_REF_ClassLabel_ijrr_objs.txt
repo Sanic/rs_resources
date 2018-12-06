@@ -1,0 +1,8 @@
+WhiteCeramicIkeaBowl:1
+KoellnMuesliKnusperHonigNuss:2
+AlbiHimbeerJuice:3
+BluePlasticKnife:4
+BluePlasticSpoon:5
+LargeGreySpoon:6
+RedPlasticKnife:7
+SlottedSpatula:8
